@@ -20,9 +20,9 @@ const Header = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
-                        className='text-2xl font-bold text-primary'
+                        className='text-2xl font-bold text-[#667eea]'
                     >
-                        <span className='text-gray-700'>Pujan.</span>
+                        Pujan<span className='text-gray-700'>.</span>
                     </m.div>
 
                     <div className='hidden md:flex space-x-8'>
@@ -34,7 +34,7 @@ const Header = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}>
                                 <Link
                                     href={item.href}
-                                    className='text-gray-700 hover:text-primary transition-colors'
+                                    className='text-gray-700 hover:text-[#667eea] transition-colors'
                                 >{item.name}</Link>
                             </m.div>
 
