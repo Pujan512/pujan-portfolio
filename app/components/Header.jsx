@@ -4,6 +4,7 @@ import { motion as m } from 'framer-motion'
 import Link from 'next/link'
 
 const Header = () => {
+    const [isOpen, setIsOpen] = React.useState(false);
     const navItems = [
         { name: 'Home', href: '#home' },
         { name: 'About', href: '#about' },
@@ -13,7 +14,7 @@ const Header = () => {
     ]
 
     return (
-        <header className='fixed w-full bg-white shadow-md z-50'>
+        <header className='fixed w-screen bg-white shadow-md z-50'>
             <nav className='container mx-auto px-6 py-3'>
                 <div className='flex justify-between items-center'>
                     <m.div
@@ -45,12 +46,37 @@ const Header = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                         className='md:hidden text-gray-700 focus:outline-none'
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label='Toggle Menu'
                     >
                         <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 18h16' />
+                            {isOpen ? (
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> ) : (
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 18h16' /> )}
                         </svg>
                     </m.button>
                 </div>
+
+                {isOpen && (
+                    <m.div
+                        initial={{opacity: 0, y: -20}}
+                        animate={{opacity: 1, y: 0}}
+                        exit={{opacity: 0, y: -20}}
+                        transition={{duration: 0.3}}
+                        className='md:hidden mt-4 pb-4'
+                    >
+                        <div className='flex flex-col space-y-4'>
+                            {navItems.map((item, index) => (
+                                <Link
+                                    key={index}
+                                    href={item.href}
+                                    className='text-gray-700 hover:text-[#667eea] transition-colors px-2 py-1'
+                                    onClick={()=>setIsOpen(false)}
+                                >{item.name}</Link>
+                            ))}
+                        </div>
+                    </m.div>
+                )}
             </nav>
         </header>
     )

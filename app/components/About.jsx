@@ -4,7 +4,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <section id='#about' className='py-16 bg-white'>
+    <section id='about' className='py-16 bg-white'>
       <div className='container mx-auto px-6'>
         <m.div
           initial={{ opacity: 0 }}
