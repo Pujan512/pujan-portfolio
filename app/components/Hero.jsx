@@ -13,12 +13,12 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className='md:w-1/2 flex justify-center'
           >
-            <div className='w-64 h-64 md:size-80 bg-white rounded-full overflow-hidden shadow-2xl'>
+            <div className='w-64 h-64 md:size-90 bg-white rounded-full overflow-hidden shadow-2xl'>
               {/* place your image */}
               <div className='w-full h-full bg-gray-200 flex items-center justify-center'>
-                <span className='text-gray-500 text-lg'>Profile Image</span>
+
+                <img src="/profile.png" alt='profile' />
               </div>
-              {/* replace above code with picture */}
             </div>
           </m.div>
 

@@ -6,20 +6,26 @@ const Projects = () => {
   const projectsData = [
     {
       title: "Omnisale (E-commerce platform)",
+      src: '/projects/OmniLogoSmall.png',
       description: "Developed a full-stack e-commerce platform with product listings and cart functionality.",
       tech: "ReactJS, TailwindCSS, .NET, MSSQL, JWT",
+      gitLink: "https://github.com/Pujan512/Omnisale",
       link: "https://omnisale.vercel.app",
     },
     {
       title: "ChatNest (Realtime Chatapp)",
+      src: '/projects/chat.png',
       description: "Built a real-time messaging app.",
       tech: "ReactJS, TailwindCSS, Socket.io, ExpressJS, MongoDB",
+      gitLink: "https://github.com/Pujan512/Chat-app",
       link: "https://chat-app-meer.onrender.com",
     },
     {
       title: "Todo App",
+      src: '/projects/todo.png',
       description: "Created a CRUD task manager with React.js for frontend and local storage for data persistence.",
       tech: "ReactJS, Local Storage",
+      gitLink: "https://github.com/Pujan512/Todo-react",
       link: "https://todo-react-pujan.vercel.app/",
     },
   ]
@@ -49,7 +55,7 @@ const Projects = () => {
               className='bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow'
             >
               <div className='h-48 bg-gradient-to-r from-[#667eea] to-[#764ba2] flex items-center justify-center'>
-                <span className='text-white text-xl font-semibold'>{project.title.split(' ')[0]}</span>
+                <img src={project.src} alt={project.title} className='object-contain size-40' />
               </div>
 
               <div className='p-6'>
@@ -57,15 +63,26 @@ const Projects = () => {
                 <p className='text-gray-600 mb-4'>
                   <span className='font-medium'>Tech Stack:</span> {project.tech}
                 </p>
-                <m.a
-                 whileHover={{scale: 1.05}}
-                 whileTap={{scale: 0.95}}
-                 href={project.link}
-                 target='_blank'
-                 rel='noopener noreferrer'
-                 className='inline-block bg-[#667eea] text-white px-4 py-2 rounded-lg text-sm font-medium'
-                > View Project
-                </m.a>
+                <div className='flex gap-5'>
+                  <m.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={project.gitLink}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='inline-block bg-[#667eea] text-white px-4 py-2 rounded-lg text-sm font-medium'
+                  > Github
+                  </m.a>
+                  <m.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={project.link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='inline-block bg-[#667eea] text-white px-4 py-2 rounded-lg text-sm font-medium'
+                  > View Project
+                  </m.a>
+                </div>
               </div>
             </m.div>
           ))}
